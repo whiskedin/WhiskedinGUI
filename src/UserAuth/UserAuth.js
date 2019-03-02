@@ -68,7 +68,7 @@ export default class UserAuth extends Component {
         })
             .then(res => {
                 if (res.data["access_token"]) {
-                    localStorage.setItem('user', JSON.stringify(res.data["user"]));
+                    localStorage.setItem('user', JSON.stringify(res.data["access_token"]));
                     this.props.history.push("/home")
                 }
                 // console.log(res);
@@ -97,6 +97,7 @@ export default class UserAuth extends Component {
             .then(res => {
                 console.log(res);
                 console.log(res.data);
+                localStorage.setItem('user', JSON.stringify(res.data['access_token']));
                 this.props.history.push('/home');
             }).catch( res => {
                 const err = document.getElementById('id_existing_user');

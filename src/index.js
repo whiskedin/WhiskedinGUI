@@ -7,7 +7,7 @@ import {BrowserRouter} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-const API_URL = "http://localhost:5000/";
+const API_URL = "http://whiskedin.herokuapp.com";
 export default API_URL;
 
 ReactDOM.render(

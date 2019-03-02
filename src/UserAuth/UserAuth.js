@@ -1,6 +1,19 @@
 import React, {Component} from 'react';
 import './UserAuth.css';
-import {Button, Col, Form, FormGroup, Input, Label, Nav, NavItem, NavLink, Row, TabContent, TabPane} from "reactstrap";
+import {
+    Button,
+    Col,
+    Form,
+    FormGroup,
+    Input,
+    Label,
+    Nav,
+    NavItem,
+    NavLink,
+    Row,
+    TabContent,
+    TabPane
+} from "reactstrap";
 import axios from 'axios';
 import classnames from 'classnames';
 import whisk from '../img/whiskedinlogo.png';
@@ -16,7 +29,8 @@ export default class UserAuth extends Component {
             activeTab: '1',
             username: '',
             email: '',
-            password: ''
+            password: '',
+            error: ''
         };
     }
 
@@ -53,12 +67,17 @@ export default class UserAuth extends Component {
             headers: {'Content-Type': 'application/json',}
         })
             .then(res => {
-                if (res.data["is_authenticated"]) {
+                if (res.data["access_token"]) {
                     localStorage.setItem('user', JSON.stringify(res.data["user"]));
-                    this.props.history.push("/whisk")
+                    this.props.history.push("/home")
                 }
                 // console.log(res);
                 // console.log(res.data);
+            }).catch( res => {
+                const err = document.getElementById('id_er');
+                err.style.visibility = "visible";
+                err.innerText = "Invalid username or password";
+                // show error
             })
     };
 
@@ -78,7 +97,13 @@ export default class UserAuth extends Component {
             .then(res => {
                 console.log(res);
                 console.log(res.data);
-            })
+                this.props.history.push('/home');
+            }).catch( res => {
+                const err = document.getElementById('id_existing_user');
+                err.style.visibility = "visible";
+                err.innerText = "Username already exists";
+                // show error
+        })
     };
 
 
@@ -115,6 +140,7 @@ export default class UserAuth extends Component {
                                 <Col sm="12">
                                     <div className="bork-logo">
                                         <div className="UserAuth">
+                                            <p className="error" id="id_invalid_user"></p>
                                             <Form onSubmit={this.handleLoginSubmit} className="login">
                                                 <FormGroup>
                                                     <Label for="username">Username</Label>
@@ -148,6 +174,7 @@ export default class UserAuth extends Component {
                                 <Col sm="12">
                                     <div className="bork-logo">
                                         <div className="UserAuth">
+                                            <p className="error" id="id_existing_user"></p>
                                             <Form onSubmit={this.handleSignUpSubmit} className="sign-up">
                                                 <FormGroup>
                                                     <Label for="username">Username</Label>
@@ -157,16 +184,6 @@ export default class UserAuth extends Component {
                                                         id="UserAuth-username"
                                                         placeholder="Enter username"
                                                         onChange={this.handleUsernameChange}
-                                                    />
-                                                </FormGroup>
-                                                <FormGroup>
-                                                    <Label for="email">Email</Label>
-                                                    <Input
-                                                        type="email"
-                                                        name="email"
-                                                        id="UserAuth-email"
-                                                        placeholder="Enter email"
-                                                        onChange={this.handleEmailChange}
                                                     />
                                                 </FormGroup>
                                                 <FormGroup>

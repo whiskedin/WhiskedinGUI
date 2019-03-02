@@ -1,8 +1,12 @@
 .UserAuth-logo {
-    width: 30em;
-    height: 20em;
+    width: auto;
+    height: auto;
     display: block;
     margin: auto;
+    max-height: 400px;
+    max-width: 400px;
+    padding-bottom: 1em;
+
     /*background-image: url("../img/dog.svg");*/
     /*!*height: 100%;*!*/
     /*background-position: top;*/
@@ -14,12 +18,11 @@
     /*top: 0;*/
     /*left: 0;*/
 }
-
-/*.App {*/
-/*display: flex;*/
-/*justify-content: center;*/
-/*align-items: center;*/
-/*}*/
+.App {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .UserAuth-tabs {
     position: relative;
@@ -29,6 +32,12 @@
 .login {
     padding: 1em;
 }
+
+.error {
+    visibility: hidden;
+    color: red;
+}
+
 
 /*.bork-logo {*/
 /*!*display: block;*!*/
@@ -66,6 +75,7 @@
 /*!*left: 0;*!*/
 /*!*right: 0;*!*/
 /*top: 45%;*/
+    /**/
 /*!*bottom: 0;*!*/
 /*!*margin: auto;*!*/
 /*}*/

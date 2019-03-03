@@ -5,18 +5,20 @@
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "^4.2.1",
+    "chromedriver": "^2.46.0",
     "classnames": "^2.2.6",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.3",
-    "reactstrap": "^7.1.0"
+    "reactstrap": "^7.1.0",
+    "selenium-webdriver": "^4.0.0-alpha.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "test": "mocha"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -26,5 +28,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "mocha": "^6.0.2"
+  }
 }

@@ -71,8 +71,7 @@ export default class UserAuth extends Component {
                     localStorage.setItem('user', JSON.stringify(res.data["access_token"]));
                     this.props.history.push("/home")
                 }
-                // console.log(res);
-                // console.log(res.data);
+
             }).catch( res => {
                 const err = document.getElementById('id_er');
                 err.style.visibility = "visible";
@@ -87,7 +86,6 @@ export default class UserAuth extends Component {
         // Creating form to be sent to API
         const data = new FormData();
         data.append('username', this.state.username);
-        data.append('email', this.state.email);
         data.append('password', this.state.password);
 
         // Contacting api to add new user

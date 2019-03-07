@@ -117,7 +117,7 @@ export default class UserAuth extends Component {
                                 className={classnames({active: this.state.activeTab === '1'})}
                                 onClick={() => {
                                     this.toggle('1');
-                                }}
+                                }} id='id_sign_in'
                             >
                                 Login
                             </NavLink>
@@ -127,7 +127,7 @@ export default class UserAuth extends Component {
                                 className={classnames({active: this.state.activeTab === '2'})}
                                 onClick={() => {
                                     this.toggle('2');
-                                }}
+                                }} id={'id_sign_up'}
                             >
                                 Sign-Up
                             </NavLink>
@@ -146,7 +146,7 @@ export default class UserAuth extends Component {
                                                     <Input
                                                         type="username"
                                                         name="username"
-                                                        id="UserAuth-username"
+                                                        id="UserAuth-username_login"
                                                         placeholder="Enter username"
                                                         onChange={this.handleUsernameChange}
                                                     />
@@ -156,12 +156,12 @@ export default class UserAuth extends Component {
                                                     <Input
                                                         type="password"
                                                         name="password"
-                                                        id="UserAuth-password"
+                                                        id="UserAuth-password_login"
                                                         placeholder="Enter password"
                                                         onChange={this.handlePasswordChange}
                                                     />
                                                 </FormGroup>
-                                                <Button>Login</Button>
+                                                <Button id="id_login_button">Login</Button>
                                             </Form>
                                         </div>
                                     </div>
@@ -180,7 +180,7 @@ export default class UserAuth extends Component {
                                                     <Input
                                                         type="username"
                                                         name="username"
-                                                        id="UserAuth-username"
+                                                        id="UserAuth-username_sign_up"
                                                         placeholder="Enter username"
                                                         onChange={this.handleUsernameChange}
                                                     />
@@ -190,12 +190,12 @@ export default class UserAuth extends Component {
                                                     <Input
                                                         type="password"
                                                         name="password"
-                                                        id="UserAuth-password"
+                                                        id="UserAuth-password_sign_up"
                                                         placeholder="Enter password"
                                                         onChange={this.handlePasswordChange}
                                                     />
                                                 </FormGroup>
-                                                <Button>Sign-Up</Button>
+                                                <Button id='id_sign_up_button'>Sign-Up</Button>
                                             </Form>
                                         </div>
                                     </div>

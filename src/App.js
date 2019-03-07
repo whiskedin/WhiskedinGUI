@@ -6,7 +6,13 @@ import Home from './Home/Home';
 
 
 class App extends Component {
-  render() {
+
+    constructor(props){
+        super(props);
+        process.title = 'Bops';
+    }
+
+    render() {
     return (
         <div className="App">
           <Route exact path="/" component={UserAuth}/>

@@ -22,9 +22,10 @@ describe('Tests', function() {
         await driver.get('http://localhost:3000');
         assert(await driver.findElement(By.id('UserAuth-username_login')).isDisplayed());
         assert(await driver.findElement(By.id('UserAuth-password_login')).isDisplayed());
+        let sign_in = await driver.findElement(By.id('id_login_button'));
+        assert(await sign_in.getText(), "Login");
 
-        let button = await driver.findElement(By.id('id_sign_up'));
-        await button.click();
+        await driver.findElement(By.id('id_sign_up')).click();
         assert(await driver.findElement(By.id('UserAuth-username_sign_up')).isDisplayed());
         assert(await driver.findElement(By.id('UserAuth-password_sign_up')).isDisplayed());
         let sign_up = await driver.findElement(By.id('id_sign_up_button'));

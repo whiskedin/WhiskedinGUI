@@ -161,7 +161,7 @@ export default class UserAuth extends Component {
                                                         onChange={this.handlePasswordChange}
                                                     />
                                                 </FormGroup>
-                                                <Button id="id_login_button">Login</Button>
+                                                <Button id="id_signin_button">Login</Button>
                                             </Form>
                                         </div>
                                     </div>

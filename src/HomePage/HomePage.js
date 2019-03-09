@@ -17,8 +17,8 @@ class Card extends React.Component {
     }
 
     handleNext() {
-        const id = this.state.Id + 1
-        const deck = this.state.Deck
+        const id = this.state.Id + 1;
+        const deck = this.state.Deck;
         if(id < deck.length && id >= 0){
             this.setState(state => ({
                 Id: deck[id].Id,
@@ -29,8 +29,8 @@ class Card extends React.Component {
     }
 
       handleBack() {
-        const id = this.state.Id - 1
-        const deck = this.state.Deck
+        const id = this.state.Id - 1;
+        const deck = this.state.Deck;
         if(id >= 0){
             this.setState(state => ({
                 Id: deck[id].Id,
@@ -42,30 +42,30 @@ class Card extends React.Component {
 
     render(){
         return (
-            <div>
+            <div id='id_whisk_card'>
                 <table> 
                     <thead>
                         <tr>
-                            <th>{this.state.Name}</th>
-                            <th>{this.state.Brand}</th>
+                            <th id='id_name'>{this.state.Name}</th>
+                            <th id='id_brand'>{this.state.Brand}</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>
-                                <button className='button' onClick={this.handleBack}>
+                                <button id='id_back_button' className='button' onClick={this.handleBack}>
                                     {'Back'}
                                 </button>
-                                <img src={whisk} className='Card-Img' alt=''>
+                                <img id='id_image' src={whisk} className='Card-Img' alt=''>
                                 </img>
-                                <button className='button' onClick={this.handleNext}>
+                                <button id="id_next_button" className='button' onClick={this.handleNext}>
                                     {'Next'}
                                 </button>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <button className='button'>
+                                <button id='id_share_button' className='button'>
                                     {'Share'}
                                 </button>
                             </td>
@@ -96,7 +96,7 @@ export default class HomePage extends React.Component {
                 Brand: 'Jhonnie Walker 3'
             }
         ]
-    }
+    };
 
     render() {
         const deck= this.state.deck;
@@ -108,7 +108,7 @@ export default class HomePage extends React.Component {
                         <tr>
                             <th>WhiskedIn</th>
                             <td>
-                                <button className='button'>
+                                <button id='id_logout_button' className='button'>
                                     {'Log Out'}
                                 </button>
                             </td>

@@ -18,21 +18,27 @@ class Card extends React.Component {
 
     handleNext() {
         const id = this.state.Id + 1
-        this.setState(state => ({
-            Id: this.state.Deck[id].Id,
-            Name: this.state.Deck[id].Name,
-            Brand: this.state.Deck[id].Brand
-        }));
-      }
+        const deck = this.state.Deck
+        if(id < deck.length && id >= 0){
+            this.setState(state => ({
+                Id: deck[id].Id,
+                Name: deck[id].Name,
+                Brand: deck[id].Brand
+            }));
+        }
+    }
 
       handleBack() {
         const id = this.state.Id - 1
-        this.setState(state => ({
-            Id: this.state.Deck[id].Id,
-            Name: this.state.Deck[id].Name,
-            Brand: this.state.Deck[id].Brand
-        }));
-      }
+        const deck = this.state.Deck
+        if(id >= 0){
+            this.setState(state => ({
+                Id: deck[id].Id,
+                Name: deck[id].Name,
+                Brand: deck[id].Brand
+            }));
+        }
+    }
 
     render(){
         return (

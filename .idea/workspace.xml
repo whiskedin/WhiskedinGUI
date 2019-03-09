@@ -212,8 +212,8 @@
     </configuration>
     <list>
       <item itemvalue="JavaScript Debug.Debug Application" />
-      <item itemvalue="Mocha.Tests" />
       <item itemvalue="npm.npm start" />
+      <item itemvalue="Mocha.Tests" />
     </list>
     <recent_temporary>
       <list>

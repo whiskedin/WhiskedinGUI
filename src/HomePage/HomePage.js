@@ -1,121 +1,78 @@
 import React from 'react';
 import './HomePage.css';
-import whisk from '../img/whiskedinlogo.png';
+import Card from'./Card'
 
-class Card extends React.Component {
+
+export default class HomePage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            Deck: props.deck,
-            Id: props.deck[0].Id,
-            Name: props.deck[0].Name,
-            Brand: props.deck[0].Brand
+            deck: [
+                {
+                    Idx: 0,
+                    Name: 'White Walker',
+                    Brand: 'Jhonny Walker 1',
+                },
+                {
+                    Idx: 1,
+                    Name: 'Red Label',
+                    Brand: 'Jhonnie Walker 2'
+                },
+                {
+                    Idx: 2,
+                    Name: 'Blue Label',
+                    Brand: 'Jhonnie Walker 3'
+                }
+            ],
+
+            currIndex: 0
         };
 
         this.handleNext = this.handleNext.bind(this);
         this.handleBack = this.handleBack.bind(this);
     }
 
+
+
     handleNext() {
-        const id = this.state.Id + 1
-        const deck = this.state.Deck
-        if(id < deck.length && id >= 0){
-            this.setState(state => ({
-                Id: deck[id].Id,
-                Name: deck[id].Name,
-                Brand: deck[id].Brand
+        const index = this.state.currIndex + 1
+        if(index >= 0 && index < this.state.deck.length){
+            this.setState((state) => ({
+                currIndex: index
             }));
         }
     }
 
-      handleBack() {
-        const id = this.state.Id - 1
-        const deck = this.state.Deck
-        if(id >= 0){
-            this.setState(state => ({
-                Id: deck[id].Id,
-                Name: deck[id].Name,
-                Brand: deck[id].Brand
+    handleBack() {
+        const index = this.state.currIndex - 1
+        if(index >= 0){
+            this.setState((state) => ({
+                currIndex: index
             }));
         }
-    }
-
-    render(){
-        return (
-            <div>
-                <table> 
-                    <thead>
-                        <tr>
-                            <th>{this.state.Name}</th>
-                            <th>{this.state.Brand}</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <button className='button' onClick={this.handleBack}>
-                                    {'Back'}
-                                </button>
-                                <img src={whisk} className='Card-Img' alt=''>
-                                </img>
-                                <button className='button' onClick={this.handleNext}>
-                                    {'Next'}
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <button className='button'>
-                                    {'Share'}
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>        
-        )
-    }
-}
-
-export default class HomePage extends React.Component {
-    state = {
-        deck: [
-            {
-                Id: 0,
-                Name: 'White Walker',
-                Brand: 'Jhonny Walker 1',
-            },
-            {
-                Id: 1,
-                Name: 'Red Label',
-                Brand: 'Jhonnie Walker 2'
-            },
-            {
-                Id: 2,
-                Name: 'Blue Label',
-                Brand: 'Jhonnie Walker 3'
-            }
-        ]
     }
 
     render() {
-        const deck= this.state.deck;
+        const card= this.state.deck[this.state.currIndex]
 
         return (
             <div>
                 <table>
                     <thead>
-                        <tr>
-                            <th>WhiskedIn</th>
-                            <td>
-                                <button className='button'>
-                                    {'Log Out'}
-                                </button>
-                            </td>
-                        </tr>
+                    <tr>
+                        <th>WhiskedIn</th>
+                        <td>
+                            <button className='button'>
+                                {'Log Out'}
+                            </button>
+                        </td>
+                    </tr>
                     </thead>
                 </table>
-                <Card deck={deck}/>
+                <Card
+                    card={card}
+                    handleNext={this.handleNext}
+                    handleBack={this.handleBack}/>
             </div>
         )
     }
